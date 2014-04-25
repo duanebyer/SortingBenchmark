@@ -17,10 +17,10 @@ public class InsertionSort implements Sorter {
 	
 	@Override
 	public void sort(int[] array, int start, int end) {
-		for (int i = start + 1; i < end - start; ++i) {
+		for (int i = start + 1; i < end; ++i) {
 			int x = array[i];
 			int j = i;
-			while (j > 0 && array[j - 1] > x) {
+			while (j > start && array[j - 1] > x) {
 				array[j] = array[j - 1];
 				--j;
 			}
