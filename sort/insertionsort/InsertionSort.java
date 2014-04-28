@@ -20,8 +20,8 @@ public class InsertionSort implements Sorter {
 		for (int i = start; i < end; ++i) {
 			for (int j = i; j > start && array[j - 1] > array[j]; --j) {
 				int swapVal = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = swapVal;
+				array[j] = array[j - 1];
+				array[j - 1] = swapVal;
 			}
 		}
 	}
