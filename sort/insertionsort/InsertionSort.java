@@ -17,14 +17,12 @@ public class InsertionSort implements Sorter {
 	
 	@Override
 	public void sort(int[] array, int start, int end) {
-		for (int i = start + 1; i < end; ++i) {
-			int x = array[i];
-			int j = i;
-			while (j > start && array[j - 1] > x) {
-				array[j] = array[j - 1];
-				--j;
+		for (int i = start; i < end; ++i) {
+			for (int j = i; j > start && array[j - 1] > array[j]; --j) {
+				int swapVal = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = swapVal;
 			}
-			array[j] = x;
 		}
 	}
 	
