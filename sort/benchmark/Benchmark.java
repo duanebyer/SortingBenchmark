@@ -13,24 +13,18 @@ public final class Benchmark {
 		for (int i = 0; i < iterations; ++i) {
 			System.out.println("Iteration " + i);
 			System.out.println("----------------");
-			int[] array = generator.generateArray();
-			System.out.println("Before sorting:\n" + Arrays.toString(array));
+			int[] unsortedArray = generator.generateArray();
+			int[] sortedArray = new int[unsortedArray.length];
+			System.copyarray(unsortedArray, 0, sortedArray, 0, unsortedArray.length);
+			System.out.println("Before sorting:\n" + Arrays.toString(unsortedArray));
 			System.out.println("Sorting...");
-			sorter.sort(array);
-			System.out.println("After sorting:\n" + Arrays.toString(array));
-			boolean success = true;
-			int j = 1;
-			while (j < array.length) {
-				if (array[j] < array[j - 1]) {
-					success = false;
-					break;
-				}
-				++j;
-			}
-			if (success) {
+			sorter.sort(sortedArray);
+			System.out.println("After sorting:\n" + Arrays.toString(sortedArray));
+			int index = Benchmark.isSorted(unsortedArray, sortedArray);
+			if (index == -1) {
 				System.out.println("Sort succeeded.");
 			} else {
-				System.out.println("Sort failed at position " + (j - 1) + ".");
+				System.out.println("Sort failed at position " + index + ".");
 			}
 			System.out.println();
 		}
