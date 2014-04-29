@@ -15,7 +15,7 @@ public final class Benchmark {
 			System.out.println("----------------");
 			int[] unsortedArray = generator.generateArray();
 			int[] sortedArray = new int[unsortedArray.length];
-			System.copyarray(unsortedArray, 0, sortedArray, 0, unsortedArray.length);
+			System.arraycopy(unsortedArray, 0, sortedArray, 0, unsortedArray.length);
 			System.out.println("Before sorting:\n" + Arrays.toString(unsortedArray));
 			System.out.println("Sorting...");
 			sorter.sort(sortedArray);
