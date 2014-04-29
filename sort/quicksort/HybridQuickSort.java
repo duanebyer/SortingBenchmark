@@ -22,7 +22,7 @@ public final class HybridQuickSort implements Sorter {
 
 	@Override
 	public void sort(int[] array, int start, int end) {
-		if (end - start <= 12500) {
+		if (end - start <= 20) {
 			InsertionSort.Instance.sort(array, start, end);
 			return;
 		}
